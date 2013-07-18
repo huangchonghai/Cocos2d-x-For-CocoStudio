@@ -1053,8 +1053,7 @@ local function runCocoGuiTest()
     -- run
     local sceneGame = CCScene:create()
     sceneGame:addChild(createLayerFarm()) 
-   
-   return sceneGame
+    CCDirector:sharedDirector():runWithScene(sceneGame)
 
 end
 
