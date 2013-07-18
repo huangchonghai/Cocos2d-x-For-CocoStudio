@@ -31,8 +31,8 @@ NS_CC_EXT_BEGIN
 
 typedef void (cocos2d::CCObject::*SEL_InitChildEvent)(cocos2d::CCObject*);
 typedef void (cocos2d::CCObject::*SEL_UpdateChildEvent)(cocos2d::CCObject*);
-#define coco_InitChildSelector(_SELECTOR) (cs::SEL_InitChildEvent)(&_SELECTOR)
-#define coco_UpdateChildSelector(_SELECTOR) (cs::SEL_UpdateChildEvent)(&_SELECTOR)
+#define coco_InitChildSelector(_SELECTOR) (SEL_InitChildEvent)(&_SELECTOR)
+#define coco_UpdateChildSelector(_SELECTOR) (SEL_UpdateChildEvent)(&_SELECTOR)
 
 class UIListView : public UIScrollView
 {

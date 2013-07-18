@@ -1,0 +1,25 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+class UITextButton : public UIButton
+{
+public:
+    UITextButton();
+    virtual ~UITextButton();
+    static UITextButton* create();
+    virtual bool init();
+    void setText(const char* text);
+	virtual const char* getString(void);
+    void setTextColor(int r,int g,int b);
+    void setFontSize(int size);
+    void setFontName(const char* fontName);
+    virtual void setFlipX(bool flipX);
+    virtual void setFlipY(bool flipY);
+    virtual void setAnchorPoint(const CCPoint &pt);
+    
+};

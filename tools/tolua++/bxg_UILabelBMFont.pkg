@@ -1,0 +1,23 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+class UILabelBMFont : public UIWidget
+{
+public:
+    UILabelBMFont();
+    virtual ~UILabelBMFont();
+    static UILabelBMFont* create();
+    void setFntFile(const char* fileName);
+    void setText(const char* value);
+    void setTextASCII(const char* value);
+    const char* getStringValue();
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+
+};

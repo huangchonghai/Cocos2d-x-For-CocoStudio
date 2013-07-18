@@ -1,0 +1,37 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+
+class UISlider : public UIWidget
+{
+public:
+    UISlider();
+    virtual ~UISlider();
+    static UISlider* create();
+    void setBarTexture(const char* fileName,bool useSpriteFrame = false);
+    void setBarTextureScale9(const char* fileName,float x,float y,float width,float height,bool useSpriteFrame = false);
+    void setBarTextureScale9Enable(bool able);
+    void setSlidBallTextures(const char* normal,const char* pressed,const char* disabled,bool useSpriteFrame = false);
+    void setSlidBallNormalTexture(const char* normal,bool useSpriteFrame = false);
+    void setSlidBallPressedTexture(const char* pressed,bool useSpriteFrame = false);
+    void setSlidBallDisabledTexture(const char* disabled,bool useSpriteFrame = false);
+    void setBarLength(float length);
+    void setShowProgressBar(bool show);
+    void setProgressBarTextureScale9(const char* fileName,float x,float y,float width,float height,bool useSpriteFrame = false);
+    void setProgressBarScale(int percent);
+    void setSlidBallPercent(int percent);
+    virtual bool pointAtSelfBody(CCPoint &pt);
+    virtual CCNode* getValidNode();
+    int getPercent();
+    virtual void onTouchBegan(CCPoint &touchPoint);
+    virtual void onTouchMoved(CCPoint &touchPoint);
+    virtual void onTouchEnded(CCPoint &touchPoint);
+    virtual void onTouchCancelled(CCPoint &touchPoint);
+
+};

@@ -1,0 +1,32 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+class UITextArea : public UIWidget
+{
+public:
+    UITextArea();
+    virtual ~UITextArea();
+    static UITextArea* create();
+    virtual void initNodes();
+    void setText(const char* text);
+    void setTextAreaSize(const CCSize &size);
+    void setTextHorizontalAlignment(CCTextAlignment alignment);
+    void setTextVerticalAlignment(CCVerticalTextAlignment alignment);
+    int getStringLength();
+    const char* getStringValue();
+    void setTextColor(int r,int g,int b);
+    void setFontSize(int size);
+    void setFontName(const char* fontName);
+    virtual void setFlipX(bool flipX);
+    virtual void setFlipY(bool flipY);
+    virtual bool isFlipX();
+    virtual bool isFlipY();
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+
+};

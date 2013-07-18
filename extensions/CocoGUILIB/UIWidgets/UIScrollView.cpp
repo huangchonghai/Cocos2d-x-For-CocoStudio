@@ -1307,6 +1307,7 @@ void UIScrollView::scrollToTopEvent()
     {
         (m_pScrollToTopListener->*m_pfnScrollToTopSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewScrollToTop);
 }
 
 void UIScrollView::scrollToBottomEvent()
@@ -1315,6 +1316,7 @@ void UIScrollView::scrollToBottomEvent()
     {
         (m_pScrollToBottomListener->*m_pfnScrollToBottomSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewScrollToBottom);
 }
 
 void UIScrollView::scrollToLeftEvent()
@@ -1323,6 +1325,7 @@ void UIScrollView::scrollToLeftEvent()
     {
         (m_pScrollToLeftListener->*m_pfnScrollToLeftSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewScrollToLeft);
 }
 
 void UIScrollView::scrollToRightEvent()
@@ -1331,6 +1334,7 @@ void UIScrollView::scrollToRightEvent()
     {
         (m_pScrollToRightListener->*m_pfnScrollToRightSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewScrollToRight);
 }
 
 void UIScrollView::addScrollToTopEvent(cocos2d::CCObject *target, SEL_ScrollToTopEvent selector)
@@ -1363,6 +1367,7 @@ void UIScrollView::berthToTopEvent()
     {
         (m_pBerthToTopListener->*m_pfnBerthToTopSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewBerthToTop);
 }
 
 void UIScrollView::berthToBottomEvent()
@@ -1371,6 +1376,7 @@ void UIScrollView::berthToBottomEvent()
     {
         (m_pBerthToBottomListener->*m_pfnBerthToBottomSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewBerthToBottom);
 }
 
 void UIScrollView::berthToVerticalCenterEvent()
@@ -1379,6 +1385,7 @@ void UIScrollView::berthToVerticalCenterEvent()
     {
         (m_pBerthToVerticalCenterListener->*m_pfnBerthToVerticalCenterSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewBerthToVerticalCenter);
 }
 
 void UIScrollView::berthToLeftEvent()
@@ -1387,6 +1394,7 @@ void UIScrollView::berthToLeftEvent()
     {
         (m_pBerthToLeftListener->*m_pfnBerthToLeftSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewBerthToLeft);
 }
 
 void UIScrollView::berthToRightEvent()
@@ -1395,6 +1403,7 @@ void UIScrollView::berthToRightEvent()
     {
         (m_pBerthToLeftListener->*m_pfnBerthToRightSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewBerthToRight);
 }
 
 void UIScrollView::berthToHorizontalCenterEvent()
@@ -1403,6 +1412,7 @@ void UIScrollView::berthToHorizontalCenterEvent()
     {
         (m_pBerthToHorizontalCenterListener->*m_pfnBerthToHorizontalCenterSelector)(this);
     }
+	ExecuteScript(ScriptEventScrollViewBerthToHorizontalCenter);
 }
 
 void UIScrollView::addBerthToTopEvent(cocos2d::CCObject *target, SEL_BerthToTopEvent selector)

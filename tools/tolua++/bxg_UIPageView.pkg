@@ -1,0 +1,39 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+typedef enum {
+    PAGEVIEW_TOUCHLEFT,
+    PAGEVIEW_TOUCHRIGHT
+}PVTouchDir;
+
+class UIPageView : public UIPanel{
+    
+public:
+    UIPageView();
+    virtual ~UIPageView();
+    static UIPageView* create();
+    void addWidgetToPage(UIWidget* widget, int pageIdx, bool forceCreate);
+    UIPanel* createPage();
+    void addPage(UIContainerWidget* page);
+    void insertPage(UIContainerWidget* page, int idx);
+    void removePage(UIContainerWidget* page, bool cleanup);
+    void removePageAtIndex(int index, bool cleanup);
+    virtual void setSize(const CCSize &size);
+    void updateChildrenSize();
+    void updateChildrenPosition();
+    void scrollToPage(int idx);
+    virtual bool removeChild(UIWidget* widget, bool cleanup);
+    virtual void removeAllChildrenAndCleanUp(bool cleanup);
+    virtual void onTouchBegan(CCPoint &touchPoint);
+    virtual void onTouchMoved(CCPoint &touchPoint);
+    virtual void onTouchEnded(CCPoint &touchPoint);
+    virtual void onTouchCancelled(CCPoint &touchPoint);
+    virtual void update(float dt);
+    virtual void checkChildInfo(int handleState,UIWidget* sender,CCPoint &touchPoint);
+
+};

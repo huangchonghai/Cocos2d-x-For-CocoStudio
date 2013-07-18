@@ -1,0 +1,38 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+class UIImageView : public UIWidget
+{
+public:
+    static UIImageView* create();
+    virtual void setTexture(const char* fileName,bool useSpriteFrame = false);
+    virtual void setTextureRect(const CCRect& rect);
+    void doubleClickEvent();
+    void checkDoubleClick(float dt);
+    void setDoubleClickEnable(bool able);
+    virtual void setFlipX(bool flipX);
+    virtual void setFlipY(bool flipY);
+    virtual bool isFlipX();
+    virtual bool isFlipY();
+    void setScale9Enable(bool able);
+    void setScale9Size(const CCSize &size);
+    void setDisplayFrame(CCSpriteFrame *pNewFrame);
+    void setSpriteFrame(CCSpriteFrame *pNewFrame);
+    void setPreferredSize(const CCSize& pSize);
+    void setInsetLeft(float insetLeft);
+    void setInsetTop(float insetTop);
+    void setInsetRight(float insetRight);
+    void setInsetBottom(float insetBottom);
+    void setCapInsets(const CCRect &capInsets);
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+    virtual void onTouchBegan(CCPoint &touchPoint);
+    virtual void onTouchEnded(CCPoint &touchPoint);
+
+};

@@ -260,7 +260,7 @@ void UIClippingLayer::setColorType(UILayerColorType type)
     }
 }
 
-bool UIClippingLayer::getColorType()
+int UIClippingLayer::getColorType()
 {
     return m_colorType;
 }

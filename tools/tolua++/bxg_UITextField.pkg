@@ -1,0 +1,40 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+class UITextField : public UIWidget
+{
+public:
+    UITextField();
+    virtual ~UITextField();
+    static UITextField* create();
+    virtual bool init();
+    virtual void initNodes();
+    void setTouchSize(const CCSize &size);
+    void setText(const char* text);
+    void setSize(const CCSize &size);
+    void setPlaceHolder(const char* value);
+    void setFontSize(int size);
+    virtual void didNotSelectSelf();
+    const char* getStringValue();
+    virtual void onTouchBegan(CCPoint &touchPoint);
+    virtual bool pointAtSelfBody(CCPoint &pt);
+    void setCharacterLength(int length);
+    void setIsPassWord(bool isPassword);
+    void update(float dt);
+    bool getAttachWithIME();
+    void setAttachWithIME(bool attach);
+    bool getDetachWithIME();
+    void setDetachWithIME(bool detach);
+    bool getInsertText();
+    void setInsertText(bool insertText);
+    bool getDeleteBackward();
+    void setDeleteBackward(bool deleteBackward);
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+};

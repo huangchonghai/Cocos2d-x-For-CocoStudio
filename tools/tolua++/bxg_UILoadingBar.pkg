@@ -1,0 +1,30 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+typedef enum
+{
+    LoadingBarTypeLeft,
+    LoadingBarTypeRight
+}LoadingBarType;
+
+class UILoadingBar : public UIWidget
+{
+public:
+    UILoadingBar();
+    virtual ~UILoadingBar();
+    static UILoadingBar* create();
+    void setDirection(LoadingBarType dir);
+    int getDirection();
+    void setTexture(const char* texture,bool useSpriteFrame = false);
+    void setPercent(int percent);
+    int getPercent();
+    float getTotalWidth();
+    float getTotalHeight();
+    virtual CCNode* getValidNode();
+
+};

@@ -27,6 +27,7 @@
 
 #include "cocos2d.h"
 #include "ExtensionMacros.h"
+#include <map>
 
 NS_CC_EXT_BEGIN
 
@@ -42,6 +43,40 @@ typedef enum
     WidgetEventTouchCancel         = 1 << 7,
     WidgetEventDrop                = 1 << 8
 }WidgetEvent;
+
+typedef enum
+{
+	/// Widget
+	ScriptEventWidgetPushDown  =1,
+	ScriptEventWidgetMove,
+	ScriptEventWidgetReleaseUp,
+	ScriptEventWidgetCancelUp,
+
+	// Scroll
+	ScriptEventScrollViewScrollToTop,
+	ScriptEventScrollViewScrollToBottom, 
+	ScriptEventScrollViewScrollToLeft,
+	ScriptEventScrollViewScrollToRight, 
+
+	ScriptEventScrollViewBerthToTop,
+	ScriptEventScrollViewBerthToBottom,
+	ScriptEventScrollViewBerthToVerticalCenter,
+	ScriptEventScrollViewBerthToLeft,
+	ScriptEventScrollViewBerthToRight,
+	ScriptEventScrollViewBerthToHorizontalCenter,
+
+	// List
+	ScriptEventListViewInitChild ,
+	ScriptEventListViewUpdateChild,
+
+	// CheckBox 
+	ScriptEventCheckBoxSelect,
+	ScriptEventCheckBoxUnSelect,
+
+	// UISlider
+	ScriptEventUISliderPercentChanged,
+
+}WidgetScriptEvent;
 
 typedef enum
 {
@@ -233,6 +268,14 @@ public:
     WidgetType getWidgetType();
     WidgetName getWidgetName();
     void setBindingAction(UIActionNode* actionNode);
+
+public: 
+	void addHandleOfControlEvent(int nFunID,WidgetScriptEvent controlEvent);
+	void removeHandleOfControlEvent(WidgetScriptEvent controlEvent);
+	
+private:
+	int  getHandleOfControlEvent(WidgetScriptEvent controlEvent);
+
 protected:
     virtual bool init();
     virtual void initNodes();
@@ -247,8 +290,10 @@ protected:
     void cancelUpEvent();
     void longClickEvent();
     virtual bool hitTest(cocos2d::CCNode* node, cocos2d::CCPoint &pt);
-    UIActionNode* m_pBindingAction;
+	void  ExecuteScript(WidgetScriptEvent controlEvent);
+	
 protected:
+	UIActionNode* m_pBindingAction;
     bool m_bEnabled;
     bool m_bVisible;
     bool m_bActived;
@@ -299,6 +344,7 @@ protected:
     WidgetName m_WidgetName;
     UILayer* m_pUILayer;
 	int m_nActionTag;
+	std::map<int,int> m_mapHandleOfEvent;
 };
 
 NS_CC_EXT_END

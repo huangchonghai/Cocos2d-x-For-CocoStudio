@@ -1,0 +1,35 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+class UICheckBox : public UIWidget
+{
+public:
+
+	UICheckBox();
+    virtual ~UICheckBox();
+    static UICheckBox* create();
+    void setTextures(const char* backGround,const char* backGroundSelected,const char* cross,const char* backGroundDisabled,const char* frontCrossDisabled,bool useSpriteFrame = false);
+    void setBackGroundTexture(const char* backGround,bool useSpriteFrame = false);
+    void setBackGroundSelectedTexture(const char* backGroundSelected,bool useSpriteFrame = false);
+    void setFrontCrossTexture(const char* cross,bool useSpriteFrame = false);
+    void setBackGroundDisabledTexture(const char* backGroundDisabled,bool useSpriteFrame = false);
+    void setFrontCrossDisabledTexture(const char* frontCrossDisabled,bool useSpriteFrame = false);
+    void setSelectedState(bool selected);
+    bool getSelectedState();
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+    virtual void addSelectEvent(CCObject* target,SEL_SelectEvent selector);
+    virtual void addUnSelectEvent(CCObject* target,SEL_UnSelectEvent selector);
+    virtual void setFlipX(bool flipX);
+    virtual void setFlipY(bool flipY);
+    virtual bool isFlipX();
+    virtual bool isFlipY();
+    virtual void onTouchEnded(CCPoint &touchPoint);
+
+};

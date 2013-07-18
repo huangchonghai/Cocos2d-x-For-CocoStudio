@@ -143,6 +143,12 @@ void UIWidget::releaseResoures()
 void UIWidget::initNodes()
 {
     m_pRender = CCNodeRGBA::create();
+    CCNodeRGBA* renderRGBA = dynamic_cast<CCNodeRGBA*>(m_pRender);
+    if (renderRGBA)
+    {
+        renderRGBA->setCascadeColorEnabled(true);
+        renderRGBA->setCascadeOpacityEnabled(true);
+    }
 }
 
 bool UIWidget::addChild(UIWidget *child)
@@ -638,6 +644,9 @@ void UIWidget::pushDownEvent()
     {
         (m_pPushListener->*m_pfnPushSelector)(this);
     }
+	
+
+	ExecuteScript(ScriptEventWidgetPushDown);
 }
 
 void UIWidget::moveEvent()
@@ -646,6 +655,7 @@ void UIWidget::moveEvent()
     {
         (m_pMoveListener->*m_pfnMoveSelector)(this);
     }
+	ExecuteScript(ScriptEventWidgetMove);
 }
 
 void UIWidget::releaseUpEvent()
@@ -654,6 +664,7 @@ void UIWidget::releaseUpEvent()
     {
         (m_pReleaseListener->*m_pfnReleaseSelector)(this);
     }
+	ExecuteScript(ScriptEventWidgetReleaseUp);
 }
 
 void UIWidget::cancelUpEvent()
@@ -662,6 +673,8 @@ void UIWidget::cancelUpEvent()
     {
         (m_pCancelListener->*m_pfnCancelSelector)(this);
     }
+	
+	ExecuteScript(ScriptEventWidgetCancelUp);
 }
 
 void UIWidget::longClickEvent()
@@ -1328,6 +1341,45 @@ int UIWidget::getActionTag()
 void UIWidget::setBindingAction(cocos2d::extension::UIActionNode *actionNode)
 {
     m_pBindingAction = actionNode;
+}
+
+
+void UIWidget::addHandleOfControlEvent(int nFunID,WidgetScriptEvent controlEvent)
+{
+	m_mapHandleOfEvent[controlEvent] = nFunID;
+}
+
+void UIWidget::removeHandleOfControlEvent(WidgetScriptEvent controlEvent)
+{
+	std::map<int,int>::iterator Iter = m_mapHandleOfEvent.find(controlEvent);
+
+	if (m_mapHandleOfEvent.end() != Iter)
+	{
+		m_mapHandleOfEvent.erase(Iter);
+	} 
+}
+
+int  UIWidget::getHandleOfControlEvent(WidgetScriptEvent controlEvent)
+{
+	std::map<int,int>::iterator Iter = m_mapHandleOfEvent.find(controlEvent);
+	
+	if (m_mapHandleOfEvent.end() != Iter)
+		return Iter->second;
+
+	return -1;
+}
+
+void UIWidget::ExecuteScript(WidgetScriptEvent controlEvent)
+{
+	CCScriptEngineProtocol* pEngine = CCScriptEngineManager::sharedManager()->getScriptEngine(); 
+	if (pEngine == NULL || pEngine->getScriptType() == kScriptTypeNone)
+	{
+		return;
+	} 
+	int nHandler = getHandleOfControlEvent(controlEvent);
+	if (-1 != nHandler) {
+		CCScriptEngineManager::sharedManager()->getScriptEngine()->executeEvent(nHandler,getName(),this);
+	}
 }
 
 NS_CC_EXT_END

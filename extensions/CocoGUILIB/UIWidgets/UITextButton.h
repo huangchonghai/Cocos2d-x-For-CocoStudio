@@ -37,6 +37,7 @@ public:
     static UITextButton* create();
     virtual bool init();
     void setText(const char* text);
+	virtual const char* getString(void);
     void setTextColor(int r,int g,int b);
     void setFontSize(int size);
     void setFontName(const char* fontName);

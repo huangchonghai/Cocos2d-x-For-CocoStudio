@@ -86,3 +86,32 @@ $pfile "CCControlPotentiometer.pkg"
 $pfile "CCControlStepper.pkg"
 $pfile "CCEditBox.pkg"
 $pfile "CCInteger.pkg"
+
+$pfile "bxg_UIWidget.pkg"
+$pfile "bxg_UIHelper.pkg"
+$pfile "bxg_UIBotton.pkg"
+$pfile "bxg_UICheckBox.pkg"
+
+$pfile "bxg_UIContainerWidget.pkg"
+$pfile "bxg_UIControlButton.pkg"
+$pfile "bxg_UIImageView.pkg"
+$pfile "bxg_UIInputManager.pkg"
+
+$pfile "bxg_UILabel.pkg"
+$pfile "bxg_UILabelAtlas.pkg"
+$pfile "bxg_UILabelBMFont.pkg"
+$pfile "bxg_UILayer.pkg"
+
+$pfile "bxg_UIListView.pkg"
+$pfile "bxg_UILoadingBar.pkg"
+$pfile "bxg_UINodeContainer.pkg"
+$pfile "bxg_UIPageView.pkg"
+
+$pfile "bxg_UIPanel.pkg"
+$pfile "bxg_UIRootWidget.pkg"
+$pfile "bxg_UIScrollView.pkg"
+$pfile "bxg_UISlider.pkg"
+
+$pfile "bxg_UITextArea.pkg"
+$pfile "bxg_UITextButton.pkg"
+$pfile "bxg_UITextField.pkg"

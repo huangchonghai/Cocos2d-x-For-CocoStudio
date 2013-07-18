@@ -47,7 +47,7 @@ public:
     void setClippingEnable(bool able);
     bool isClippingEnable();
     void setColorType(UILayerColorType type);
-    bool getColorType();
+    int getColorType();
     void setClipRect(const cocos2d::CCRect &rect);
     const CCRect& getClippingRect();
     virtual void setPosition(const CCPoint &pos);

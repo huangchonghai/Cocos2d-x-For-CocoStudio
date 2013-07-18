@@ -1102,6 +1102,7 @@ void UIListView::initChildEvent()
     {
         (m_pInitChildListener->*m_pfnInitChildSelector)(this);
     }
+	ExecuteScript(ScriptEventListViewInitChild);
 }
 
 void UIListView::updateChildEvent()
@@ -1110,6 +1111,7 @@ void UIListView::updateChildEvent()
     {
         (m_pUpdateChildListener->*m_pfnUpdateChildSelector)(this);
     }
+	ExecuteScript(ScriptEventListViewUpdateChild);
 }
 
 void UIListView::addInitChildEvent(cocos2d::CCObject *target, SEL_InitChildEvent seletor)

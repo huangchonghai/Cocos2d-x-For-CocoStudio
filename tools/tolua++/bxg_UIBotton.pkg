@@ -1,0 +1,31 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+class UIButton : public UIWidget
+{
+public:
+    static UIButton* create();
+    virtual void initPressState(WidgetState state);
+    virtual void setTextures(const char* normal,const char* selected,const char* disabled,bool useSpriteFrame = false);
+    void setNormalTexture(const char* normal,bool useSpriteFrame = false);
+    void setPressedTexture(const char* selected,bool useSpriteFrame = false);
+    void setDisabledTexture(const char* disabled,bool useSpriteFrame = false);
+    void setCapInsets(const CCRect &capInsets);
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+    virtual void setScale9Enable(bool able);
+    virtual void setScale9Size(const CCSize &size);
+    virtual void setFlipX(bool flipX);
+    virtual void setFlipY(bool flipY);
+    virtual bool isFlipX();
+    virtual bool isFlipY();
+    virtual void setNormalSpriteFrame(CCSpriteFrame* frame);
+    virtual void setPressedSpriteFrame(CCSpriteFrame* frame);
+    virtual void setDisabledSpriteFrame(CCSpriteFrame* frame);
+};

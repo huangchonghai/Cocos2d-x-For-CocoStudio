@@ -1,0 +1,44 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+class UIListView : public UIScrollView
+{
+public:
+    UIListView();
+    virtual ~UIListView();
+    static UIListView* create();
+    virtual bool addChild(UIWidget* widget);
+    virtual void removeChildMoveToTrash(UIWidget* child);
+    virtual void removeChildReferenceOnly(UIWidget* child);
+    virtual void removeAllChildrenAndCleanUp(bool cleanup);
+    bool scrollChildren(float touchOffset);
+    void drag(float offset);        
+    UIWidget* getCheckPositionChild();
+    void initChildWithDataLength(int length);        
+    UIWidget* getChildFromUpdatePool();
+    void pushChildToPool();
+    void getAndCallback();
+    int getDataLength();        
+    UIWidget* getUpdateChild();
+    void setUpdateChild(UIWidget* child);
+    int getUpdateDataIndex();
+    void setUpdateDataIndex(int index);
+    bool getUpdateSuccess();
+    void setUpdateSuccess(bool sucess);
+    void collectOverTopChild();
+    void collectOverBottomChild();
+    void collectOverLeftChild();
+    void collectOverRightChild();
+    void setLoopPosition();
+    void updateChild();
+    void initChildEvent();
+    void updateChildEvent();
+    void addInitChildEvent(CCObject* target, SEL_InitChildEvent seletor);
+    void addUpdateChildEvent(CCObject* target, SEL_UpdateChildEvent selector);
+
+};

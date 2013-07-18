@@ -1,0 +1,43 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+class UILayer : public CCLayer
+{
+    
+public:
+    UILayer();
+    virtual ~UILayer();
+    virtual bool init();
+    
+    static UILayer *create(void);
+    
+    virtual void onEnter();
+    virtual void onExit();
+    virtual void onEnterTransitionDidFinish();
+    
+    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
+    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+    virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent);
+    
+    
+    void addWidget(UIWidget* widget);
+    void removeWidgetAndCleanUp(UIWidget* widget,bool cleanup);
+    virtual void setVisible(bool visible);
+    void update(float dt);
+    void addUpdateEnableWidget(UIWidget* widget);
+    void removeUpdateEnableWidget(UIWidget* widget);
+    UIWidget* getWidgetByTag(int tag);
+    UIWidget* getWidgetByName(const char* name);
+    UIInputManager* getInputManager();
+    virtual void clear();
+    virtual void dispose();
+    UIRootWidget* getRootWidget();
+    
+//    void setUIType(GUITYPE type);
+
+};

@@ -1,5 +1,5 @@
 -- usage: (use instead of ant)
--- tolua++ "-L" "basic.lua" "-o" "../../scripting/lua/cocos2dx_support/LuaCocos2d.cpp" "Cocos2d.pkg"
+-- tolua++ "-L" "basic.lua" "-o" "LuaCocos2d.cpp" "Cocos2d.pkg"
 
 _is_functions = _is_functions or {}
 _to_functions = _to_functions or {}
@@ -200,6 +200,26 @@ local CCObjectTypes = {
     "CCControlSwitch",
     "CCEditBox",
     "CCInteger",
+    "UIWidget",
+	"UIPanel",
+	"UIPageView",
+	"UINodeContainer",
+	"UILoadingBar",
+	"UIListView",
+	"UILayer",
+	"UILabelBMFont",
+	"UILabelAtlas",
+	"UILabel",
+	"UIControlButton",
+	"UIContainerWidget",
+	"UICheckBox",
+	"UIButton",
+	"UITextField",
+	"UITextButton",
+	"UITextArea",
+	"UISlider",
+	"UIScrollView",
+	"UIRootWidget",
 }
 
 -- register CCObject types

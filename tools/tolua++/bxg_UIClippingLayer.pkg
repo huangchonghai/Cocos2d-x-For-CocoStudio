@@ -1,0 +1,36 @@
+
+typedef enum
+{
+    UL_C_NONE,
+    UL_C_COLOR,
+    UL_C_GRADIENT
+}UILayerColorType;
+    
+class UIClippingLayer : public cocos2d::CCLayerRGBA
+{
+public:
+    UIClippingLayer();
+    virtual ~UIClippingLayer();
+    static UIClippingLayer* create();
+    virtual void visit();
+    void setClippingEnable(bool able);
+    bool isClippingEnable();
+    void setColorType(UILayerColorType type);
+    bool getColorType();
+    void setClipRect(const cocos2d::CCRect &rect);
+    const CCRect& getClippingRect();
+    virtual void setPosition(const CCPoint &pos);
+    void setBGColor(const ccColor3B &color);
+    void setBGStartColor(const ccColor3B &color);
+    void setBGEndColor(const ccColor3B &color);
+    void setBGVector(const CCPoint &vector);
+    void setBGColorOpacity(int opacity);
+    virtual void onEnter();
+    virtual void onExit();
+    void checkClippingOption();
+    void updateChildrenClippingOptions();
+    virtual void setContentSize(const CCSize &size);
+    
+ };
+ 
+ 

@@ -1,0 +1,41 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+typedef enum
+{
+    LabelGravityNone = -1,
+    LabelGravityCenter,
+    LabelGravityLelf,
+    LabelGravityRight,
+    
+}LabelGravity;
+
+class UILabel : public UIWidget
+{
+public:
+    UILabel();
+    virtual ~UILabel();
+    static UILabel* create();
+    void setText(const char* text);
+    const char* getStringValue();
+    int getStringLength();
+    void setFontSize(int size);
+    void setFontName(const char* name);
+    void setTouchScaleChangeAble(bool able);
+    bool getTouchScaleChangeAble();
+    void clickScale(float scale);
+    virtual void setFlipX(bool flipX);
+    virtual void setFlipY(bool flipY);
+    virtual bool isFlipX();
+    virtual bool isFlipY();
+    void setGravity(LabelGravity gravity);
+    virtual void adaptSize(float xProportion,float yProportion);
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+
+};

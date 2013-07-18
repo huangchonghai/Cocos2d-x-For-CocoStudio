@@ -315,6 +315,8 @@ void UISlider::percentChangedEvent()
     {
         (m_pPercentListener->*m_pfnPercentSelector)(this);
     }
+
+	ExecuteScript(ScriptEventUISliderPercentChanged);
 }
 
 int UISlider::getPercent()

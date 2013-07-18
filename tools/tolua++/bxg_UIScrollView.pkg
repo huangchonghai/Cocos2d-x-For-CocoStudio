@@ -1,0 +1,69 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+enum SCROLLVIEW_DIR
+{
+    SCROLLVIEW_DIR_NONE,
+    SCROLLVIEW_DIR_VERTICAL,
+    SCROLLVIEW_DIR_HORIZONTAL
+};
+
+enum SCROLLVIEW_MOVE_DIR
+{
+    SCROLLVIEW_MOVE_DIR_NONE,
+    SCROLLVIEW_MOVE_DIR_UP,
+    SCROLLVIEW_MOVE_DIR_DOWN,
+    SCROLLVIEW_MOVE_DIR_LEFT,
+    SCROLLVIEW_MOVE_DIR_RIGHT,
+};
+
+enum SCROLLVIEW_MOVE_MODE
+{
+    SCROLLVIEW_MOVE_MODE_NONE,
+    SCROLLVIEW_MOVE_MODE_NORMAL,
+    SCROLLVIEW_MOVE_MODE_ACTION
+};
+
+enum SCROLLVIEW_BERTH_ORI
+{
+    SCROLLVIEW_BERTH_ORI_NONE,
+    SCROLLVIEW_BERTH_ORI_TOP,
+    SCROLLVIEW_BERTH_ORI_BOTTOM,
+    SCROLLVIEW_BERTH_ORI_VERTICAL_CENTER,
+    SCROLLVIEW_BERTH_ORI_LEFT,
+    SCROLLVIEW_BERTH_ORI_RIGHT,
+    SCROLLVIEW_BERTH_ORI_HORIZONTAL_CENTER
+};
+ 
+class UIScrollView : public UIPanel
+{
+public:
+    UIScrollView();
+    virtual ~UIScrollView();
+    static UIScrollView* create();
+    virtual bool addChild(UIWidget* widget);
+    virtual void removeAllChildrenAndCleanUp(bool cleanup);
+    void scrollToBottom();
+    void scrollToTop();
+    virtual void setSize(const CCSize &size);
+      
+     
+    void stopAction();
+    virtual void onTouchBegan(CCPoint &touchPoint);
+    virtual void onTouchMoved(CCPoint &touchPoint);
+    virtual void onTouchEnded(CCPoint &touchPoint);
+    virtual void onTouchCancelled(CCPoint &touchPoint);
+    virtual void onTouchLongClicked(CCPoint &touchPoint);
+    void setDirection(SCROLLVIEW_DIR dir);
+    SCROLLVIEW_DIR getDirection();
+    void setMoveMode(SCROLLVIEW_MOVE_MODE mode);
+    SCROLLVIEW_MOVE_MODE getMoveMode();
+    void setBerthOrientation(SCROLLVIEW_BERTH_ORI mode);
+    SCROLLVIEW_BERTH_ORI getBerthOrientation();
+
+};

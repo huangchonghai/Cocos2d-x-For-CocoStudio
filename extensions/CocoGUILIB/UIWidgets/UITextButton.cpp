@@ -69,6 +69,11 @@ void UITextButton::setText(const char* text)
     m_pTextLable->setString(strText.c_str());
 }
 
+const char* UITextButton::getString(void)
+{
+	return m_pTextLable->getString();
+}
+
 void UITextButton::setTextColor(int r,int g,int b)
 {
     m_pTextLable->setColor(cocos2d::ccc3(r, g, b));

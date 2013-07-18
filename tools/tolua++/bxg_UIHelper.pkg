@@ -1,0 +1,31 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+class UIHelper
+{
+public:
+    UIHelper();
+    ~UIHelper();
+    void init();
+    
+    UIWidget* createWidgetFromJsonFile(const char* fileName);
+    UIWidget* createWidgetFromJsonFileWithAdapt(const char* fileName, bool scaleAdapt, bool equalProportions);
+    void adjustWidgetProperty(UIWidget* root,float xProportion,float yProportion,bool scaleAdapt,bool equalProportions);
+    static UIHelper* instance();
+    void addSpriteFrame(const char* fileName);
+    void removeSpriteFrame(const char* fileName);
+    void removeAllSpriteFrame();
+    UIWidget* seekWidgetByTag(UIWidget* root, int tag);
+    UIWidget* seekWidgetByName(UIWidget* root, const char* name);
+	UIWidget* seekActionWidgetByActionTag(UIWidget* root, int tag);
+    void setFileDesignWidth(float width);
+    float getFileDesignWidth();
+    void setFileDesignHeight(float height);
+    float getFileDesignHeight();
+};

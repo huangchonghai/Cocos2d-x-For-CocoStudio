@@ -1,0 +1,35 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+typedef enum
+{
+    RENDER_TYPE_LAYERCOLOR,
+    RENDER_TYPE_LAYERGRADIENT
+}RenderType;
+
+
+
+class UIContainerWidget : public UIWidget
+{
+public:
+    UIContainerWidget();
+    virtual ~UIContainerWidget();
+    static UIContainerWidget* create();
+    //Only containerWidget can use the LayoutParameter for doing layout to child widget
+    virtual void setLayoutParameter(/*LayoutParameter * parmeter*/);
+    virtual bool addChild(UIWidget* child);
+    virtual void setClippingEnable(bool able);
+    virtual void setClipRect(const CCRect &rect);
+    virtual void updateWidth();
+    virtual void updateHeight();
+    virtual void setSize(const CCSize &size);
+    virtual float getWidth();
+    virtual float getHeight();
+    virtual bool isClippingEnable();
+    virtual bool hitTest(CCNode*node, CCPoint &pt);
+    CCSize getWrapSize() const;
+};

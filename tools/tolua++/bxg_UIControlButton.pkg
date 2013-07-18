@@ -1,0 +1,41 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+
+class UIControlButton : public UIWidget
+{
+public:
+    static UIControlButton* create();
+    void setTextures(const char* backgroundNormal,const char* backgroundPressed,const char* backgroundDisabled);
+    void setTitle(const char* titleNormal,const char* titlePressed,const char* titleDisabled);
+    virtual CCNode* getValidNode();
+    virtual void setAnchorPoint(const CCPoint &pt);
+    virtual void setFlipX(bool flipX);
+    virtual void setFlipY(bool flipY);
+    virtual bool isFlipX();
+    virtual bool isFlipY();
+    void setNormalTitle(const char* title);
+    void setPressedTitle(const char* title);
+    void setDisabledTitle(const char* title);
+    void setNormalFontName(const char* name);
+    void setPressedFontName(const char* name);
+    void setDisabledFontName(const char* name);
+    void setNormalFontSize(float size);
+    void setPressedFontSize(float size);
+    void setDisabledFontSize(float size);
+    void setNormalFontColor(const ccColor3B& color);
+    void setPressedFontColor(const ccColor3B& color);
+    void setDisalbedFontColor(const ccColor3B& color);
+    void setLabelAnchorPoint(const CCPoint& labelAnchorPoint);
+    void setPreferredSize(const CCSize& size);
+    void setNormalBackgroundSpriteFrame(CCSpriteFrame * spriteFrame);
+    void setPressedBackgroundSpriteFrame(CCSpriteFrame * spriteFrame);
+    void setDisabledBackgroundSpriteFrame(CCSpriteFrame * spriteFrame);
+    void setZoomOnTouchDown(bool zoom);
+    bool getZoomOnTouchDown();    
+};

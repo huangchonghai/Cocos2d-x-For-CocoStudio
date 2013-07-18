@@ -1,0 +1,33 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+typedef enum
+{
+    PANEL_COLOR_NONE,
+    PANEL_COLOR_SOLID,
+    PANEL_COLOR_GRADIENT
+}PanelColorType;
+
+class UIPanel : public UIContainerWidget
+{
+public:
+    UIPanel();
+    virtual ~UIPanel();
+    static UIPanel* create();
+    void setBackGroundImage(const char* fileName,bool useSpriteFrame = false);
+    void setBackGroundImageCapInsets(const CCRect& capInsets);
+    virtual void setBackGroundColorType(PanelColorType type);
+    virtual void setSize(const CCSize &size);
+    void setBackGroundImageScale9Enable(bool able);
+    void setBackGroundColor(const ccColor3B &color);
+    void setBackGroundColor(const ccColor3B &startColor, const ccColor3B &endColor);
+    void setBackGroundColorOpacity(int opacity);
+    void setBackGroundColorVector(const CCPoint &vector);
+    virtual void setColor(const ccColor3B &color);
+    virtual void setOpacity(int opacity);
+};

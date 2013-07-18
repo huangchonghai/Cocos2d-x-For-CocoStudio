@@ -245,6 +245,7 @@ void UICheckBox::selectedEvent()
     {
         (m_pSelectListener->*m_pfnSelectSelector)(this);
     }
+	ExecuteScript(ScriptEventCheckBoxSelect);
 }
 
 void UICheckBox::unSelectedEvent()
@@ -253,6 +254,7 @@ void UICheckBox::unSelectedEvent()
     {
         (m_pUnSelectListener->*m_pfnUnSelectSelector)(this);
     }
+	ExecuteScript(ScriptEventCheckBoxUnSelect);
 }
 
 cocos2d::CCNode* UICheckBox::getValidNode()

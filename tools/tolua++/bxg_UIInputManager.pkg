@@ -1,0 +1,30 @@
+//******************************************************************
+//** 创建人:	王星莅
+//** 版  权:	深圳市冰西瓜网络科技有限公司
+//** 日  期:	2013-7-17
+//** 版  本:	0.1
+//** 描  述:	  
+//********************************************************************/
+
+class UIInputManager
+{
+public:
+    UIInputManager();
+    ~UIInputManager();
+    void registWidget(UIWidget* widget);
+    void uiSceneHasChanged();
+    void sortWidgets(UIWidget* widget);
+    void sortRootWidgets(UIWidget* root);
+    void removeManageredWidget(UIWidget* widget);
+    UIWidget* checkEventWidget(CCPoint &touchPoint);
+    void addCheckedDoubleClickWidget(UIWidget* widget);
+    void update(float dt);
+    bool onTouchBegan(CCTouch* touch);
+    bool onTouchMoved(CCTouch* touch);
+    bool onTouchEnd(CCTouch* touch);
+    bool onTouchCancelled(CCTouch* touch);
+    
+    void setRootWidget(UIWidget* root);
+    UIWidget* getRootWidget();
+    
+};
